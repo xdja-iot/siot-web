@@ -3,6 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import base from './base'
+
+Vue.use(base);
 
 Vue.config.productionTip = false
 
@@ -11,5 +14,15 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
 })
+
+/* console.log('11111');
+
+import {counter,add} from './test.js'
+
+console.log(counter);
+add();
+console.log(counter); */
+
+

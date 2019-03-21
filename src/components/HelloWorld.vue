@@ -92,6 +92,11 @@ export default {
     }
   }
 }
+
+/* import {counter,add} from '../test.js'
+add();
+console.log("in helloword:" + counter);
+ */
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
