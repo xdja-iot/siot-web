@@ -20,12 +20,25 @@
 <script>
 	export default {
 	  name: 'Home',
+	  watch:{
+		  $route (to,from){
+		  },
+	  },
+	  beforeRouteEnter (to, from, next) {
+		next();
+	  },
+	  beforeRouteUpdate(to, from, next) {
+		next();
+	  },
+	  beforeRouteLeave(to, from, next) {
+		next();
+	  },
 	  data () {
 	    return {
 			items:[
 				{name:'路由跳转',link:'/home/tab'},
 				{name:'路由传参',link:'/home/routerparams'},
-				{name:'菜单3',link:'/login'},
+				{name:'路由拦截',link:'/home/intercept'},
 			],
 	    }
 	  }

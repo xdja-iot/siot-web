@@ -18,7 +18,7 @@ import PropsTwo from '@/components/PropsTwo'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
 	routes: [
 		{
 			path: '/HelloWorld',
@@ -39,6 +39,10 @@ export default new Router({
 			path: '/home',
 			name: 'Home',
 			component: Home,
+			beforeEnter:(to,from,next)=>{
+				debugger;
+				next();
+			},
 			children:[
 				{
 					path:'tab',
@@ -105,6 +109,16 @@ export default new Router({
 						},
 					]
 				},
+				{
+					path:'intercept',
+					beforeEnter:(to,from,next)=>{
+						debugger;
+						next({
+							path:'/fullScreen',
+							query:{redirect:to.fullPath}
+						});
+					},
+				},
 			]
 		},
 		{
@@ -112,6 +126,12 @@ export default new Router({
 			name: 'FullScreen',
 			component: FullScreen
 		},
-		
 	]
-})
+});
+
+router.beforeEach((to,from,next) =>{
+	console.log('from:' + from.path + ',to:' + to.path);
+	next();
+});
+
+export default router;
