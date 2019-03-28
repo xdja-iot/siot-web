@@ -6,6 +6,8 @@ import Home from '@/components/Home'
 import Tab from '@/components/Tab'
 import TabContentOne from '@/components/TabContentOne'
 import FullScreen from '@/components/FullScreen'
+
+
 import RouterParams from '@/components/RouterParams'
 import ParamsOne from '@/components/ParamsOne'
 import ParamsTwo from '@/components/ParamsTwo'
@@ -15,6 +17,11 @@ import ParamsFive from '@/components/ParamsFive'
 import PropsOne from '@/components/PropsOne'
 import PropsTwo from '@/components/PropsTwo'
 
+
+import VuexTest from '@/components/VuexTest'
+import VuexTestComponentsOne from '@/components/VuexTestComponentsOne'
+import VuexTestComponentsTwo from '@/components/VuexTestComponentsTwo'
+import VuexTestComponentsThree from '@/components/VuexTestComponentsThree'
 
 Vue.use(Router)
 
@@ -40,7 +47,6 @@ const router = new Router({
 			name: 'Home',
 			component: Home,
 			beforeEnter:(to,from,next)=>{
-				debugger;
 				next();
 			},
 			children:[
@@ -118,6 +124,28 @@ const router = new Router({
 							query:{redirect:to.fullPath}
 						});
 					},
+				},
+				{
+					path:'VuexTest',
+					name:'VuexTest',
+					component:VuexTest,
+					children:[
+						{
+							path:'VuexTestComponentsOne',
+							name:'VuexTestComponentsOne',
+							component:VuexTestComponentsOne
+						},
+						{
+							path:'VuexTestComponentsTwo',
+							name:'VuexTestComponentsTwo',
+							component:VuexTestComponentsTwo
+						},
+						{
+							path:'VuexTestComponentsThree',
+							name:'VuexTestComponentsThree',
+							component:VuexTestComponentsThree
+						},
+					]
 				},
 			]
 		},

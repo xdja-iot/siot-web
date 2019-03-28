@@ -20,10 +20,10 @@
 <script>
 	export default {
 	  name: 'Home',
-	  watch:{
+/* 	  watch:{
 		  $route (to,from){
 		  },
-	  },
+	  }, */
 	  beforeRouteEnter (to, from, next) {
 		next();
 	  },
@@ -39,6 +39,7 @@
 				{name:'路由跳转',link:'/home/tab'},
 				{name:'路由传参',link:'/home/routerparams'},
 				{name:'路由拦截',link:'/home/intercept'},
+				{name:'Vuex使用',link:'/home/VuexTest'},
 			],
 	    }
 	  }
