@@ -4,11 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-	cookie:{
-		loginState:false,
-		userId:'',
-		userName:''
-	},
+	cookie:null,
 	baseUrl:'http://safecenter.xdja.com',
 	loginTime:'11111111'
 }
@@ -16,11 +12,27 @@ const state = {
 const mutations = {
 	updateCookie(state,cookie){
 		state.cookie = cookie;
+		sessionStorage.setItem('cookie',JSON.stringify(cookie));
 	},
+	getGoods:function(){
+		//获取商品。
+	}
 }
 
 const getters = {
-	cookie:state => state.cookie,
+	cookie:state => {
+		debugger;
+		if(!state.cookie){
+			let cookieStr = sessionStorage.getItem('cookie');
+			if(cookieStr){
+				return JSON.parse(sessionStorage.getItem('cookie'));
+			}
+			else{
+				return {};
+			}
+		}
+		return state.cookie;
+	},
 	baseUrl:state => state.baseUrl,
 	loginTime:state => state.loginTime,
 }

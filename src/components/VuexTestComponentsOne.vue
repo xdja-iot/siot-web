@@ -12,10 +12,10 @@
 		<div>userId:{{cookie.userId}}</div>
 		<div>userName:{{cookie.userName}}</div>
 
-		<div>直接使用state,此种场景适用于变量不需要二次计算的场景。</div>
+		<!-- <div>直接使用state,此种场景适用于变量不需要二次计算的场景。最好不用这样用，因为有时候对象初始化赋值为null，这样刷新会出问题。</div>
 		<div>loginState:{{this.$store.state.cookie.loginState}}</div>
 		<div>userId:{{this.$store.state.cookie.userId}}</div>
-		<div>userName:{{this.$store.state.cookie.userName}}</div>
+		<div>userName:{{this.$store.state.cookie.userName}}</div> -->
 
 		<div>mapGetters使用，注意：重命名的方式不能对对象重命名</div>
 		<div>baseUrl:{{baseUrl}}</div>
